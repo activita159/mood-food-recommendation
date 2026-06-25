@@ -7,7 +7,6 @@
 - `frontend/`：Vue 3 + Vite 前端專案
 - `backend/`：FastAPI 後端 API
 - `docs/`：專題規格、API 文件、資料庫設計、工作流程與分工文件
-- `.github/`：合併請求樣板
 
 ## 技術棧
 
@@ -116,3 +115,31 @@ console.log(result.data)
 
 - `main`：穩定版本分支
 - `feature/*`：個別功能分支
+
+開發功能時，組員從 `main` 開自己的 `feature/*` 分支。完成後推上遠端，通知整合者檢查並手動合併回 `main`。
+
+組員開功能分支：
+
+```powershell
+git checkout main
+git pull origin main
+git checkout -b feature/功能名稱
+```
+
+組員完成後推上遠端：
+
+```powershell
+git add .
+git commit -m "feat: 完成功能名稱"
+git push origin feature/功能名稱
+```
+
+整合者合併回 `main`：
+
+```powershell
+git checkout main
+git pull origin main
+git fetch origin
+git merge origin/feature/功能名稱
+git push origin main
+```
