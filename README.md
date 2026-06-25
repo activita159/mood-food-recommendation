@@ -119,7 +119,7 @@ console.log(result.data)
 開發功能時，組員從 `main` 開自己的 `feature/*` 分支。完成後推上遠端，通知整合者檢查並手動合併回 `main`。
 
 組員開功能分支：
-test  test
+
 ```powershell
 git checkout main
 git pull origin main
