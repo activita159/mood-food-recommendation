@@ -19,7 +19,11 @@
 
 開發時需要同時啟動後端與前端。建議先啟動後端，再啟動前端。
 
-### 1. 啟動後端
+### 第一次啟動
+
+第一次 clone 專案後，需要先建立後端虛擬環境並安裝前後端套件。
+
+#### 1. 啟動後端
 
 ```powershell
 cd backend
@@ -35,7 +39,7 @@ API 文件網址：
 http://localhost:8000/docs
 ```
 
-### 2. 啟動前端
+#### 2. 啟動前端
 
 請開另一個終端機視窗執行：
 
@@ -50,6 +54,32 @@ npm run dev
 ```text
 http://localhost:5173
 ```
+
+### 第二次之後啟動
+
+第二次之後如果套件沒有變更，不需要重新執行 `pip install` 或 `npm install`。
+
+#### 1. 啟動後端
+
+```powershell
+cd backend
+venv\Scripts\activate
+uvicorn main:app --reload
+```
+
+#### 2. 啟動前端
+
+請開另一個終端機視窗執行：
+
+```powershell
+cd frontend
+npm run dev
+```
+
+只有在以下情況需要重新安裝套件：
+
+- `backend/requirements.txt` 有變更：重新執行 `pip install -r requirements.txt`
+- `frontend/package.json` 有變更：重新執行 `npm install`
 
 ## 前後端資料傳遞方式
 
@@ -85,5 +115,4 @@ console.log(result.data)
 ## Git 分支建議
 
 - `main`：穩定版本分支
-- `develop`：開發整合分支
 - `feature/*`：個別功能分支
